@@ -1,1 +1,1 @@
-web: gunicorn teste:rune_stats
+web: gunicorn app:rune_stats
