@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RuneScape Stats</title>
+</head>
+<body>
+    <h1>Consulta de estatísticas</h1>
+    <form method="post">
+        <input type="text" name="username" placeholder="Nome de usuário" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if data %}
+        <h2>Resultados de {{ username }} (Fonte: {{ source }})</h2>
+        <ul>
+            {% for skill in data %}
+                <li>{{ skill.name }} - Level: {{ skill.level }} - XP: {{ skill.xp }}</li>
+            {% endfor %}
+        </ul>
+    {% elif username %}
+        <p>Não foi possível encontrar dados para o usuário "{{ username }}".</p>
+    {% endif %}
+</body>
+</html>
